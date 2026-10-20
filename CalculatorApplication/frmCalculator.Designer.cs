@@ -1,4 +1,4 @@
-﻿namespace delegatesAndEvents
+﻿namespace calculatorApplication
 {
     partial class frmCalculator
     {

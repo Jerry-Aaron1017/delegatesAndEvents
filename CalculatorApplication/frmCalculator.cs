@@ -1,6 +1,6 @@
 using Microsoft.Win32;
 
-namespace delegatesAndEvents
+namespace calculatorApplication
 {
     public partial class frmCalculator : Form
     {
