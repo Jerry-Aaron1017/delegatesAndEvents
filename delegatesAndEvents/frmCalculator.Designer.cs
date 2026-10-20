@@ -82,6 +82,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(74, 29);
             comboBox1.TabIndex = 4;
+            comboBox1.Items.AddRange(new object[] { "+", "-", "*", "/" });
             // 
             // answerLabel
             // 
@@ -130,6 +131,7 @@
             Controls.Add(txtBoxInput1);
             Name = "Form1";
             Text = "Calculator";
+            CenterToScreen();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -4,29 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace delegatesAndEvents
 {
-    public delegate T Formula<T, R>(T num1, T num2, R operation);
+    public delegate T Formula<T>(T num1, T num2);
 
-    class CalculatorClass
+    public class CalculatorClass
     {
-        public static double getSum(double num1, double num2, string operation)
+        public double getSum(double num1, double num2)
         {
             return num1 + num2;
         }
 
-        public static double getDifference(double num1, double num2, string operation)
+        public double getDifference(double num1, double num2)
         {
             return num1 - num2;
         }
 
-        public static double getProduct(double num1, double num2, string operation)
+        public double getProduct(double num1, double num2)
         {
             return num1 * num2;
         }
 
-        public static double getQuotient(double num1, double num2, string operation)
+        public double getQuotient(double num1, double num2)
         {
             if (num2 == 0)
             {
@@ -34,26 +33,19 @@ namespace delegatesAndEvents
             }
             return num1 / num2;
         }
-
-        public delegate double CalculateEvent(double num1, double num2);
-
-        public class EventAccessorClass
+        public Formula<double>? eventHandler;
+        public event Formula<double> CalculateEvent
         {
-            public CalculateEvent Sum;
-            public event CalculateEvent CalculateSumEvent
+            add
             {
-                add
-                {
-                    Console.WriteLine("Adding a method to the event.");
-                    Sum += value;
-                }
-                remove
-                {
-                    Console.WriteLine("Removing a method from the event.");
-                    Sum -= value;
-                }
+                Console.WriteLine("Adding a Delegate.");
+                eventHandler += value;
             }
-
+            remove
+            {
+                Console.WriteLine("Removed a Delegate.");
+                eventHandler -= value;
+            }
         }
     }
 }
