@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace calculatorApplication
 {
     public delegate T Formula<T>(T num1, T num2);
-
     public class CalculatorClass
     {
         public double getSum(double num1, double num2)

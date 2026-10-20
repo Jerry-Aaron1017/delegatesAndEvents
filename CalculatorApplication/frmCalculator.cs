@@ -26,6 +26,7 @@ namespace calculatorApplication
             }
 
             operation = comboBox1.SelectedItem.ToString() ?? string.Empty;
+
             switch (operation)
             {
                 case "+":
@@ -57,6 +58,9 @@ namespace calculatorApplication
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     cal.CalculateEvent -= new Formula<double>(cal.getQuotient);
+                    break;
+                default:
+                    MessageBox.Show("Invalid operation selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
         }
